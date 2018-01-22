@@ -1,30 +1,14 @@
+#include "Currency.h"
 #ifndef RUPEE_H
 #define RUPEE_H
-#include "Currency.h"
 
-using namespace std;
-
-
-//Inherit all currency attributes from Currency class
-class Rupee: public Currency {
+class Rupee : public Currency {
+private:
+	bool RupeeCreated = false;
 public:
-      //constructors
-      Rupee();  
-      Rupee(): Currency("Rupee", "paise")
-        
-//Update fractional parts into whole parts
-void CurrencyPart();
-  
-      //Overloaded operators
-      Rupee operator + (const Rupee &);
-      Rupee operator + (const double);
-      Rupee operator - (const Rupee &);
-      Rupee operator - (const double);
-      Rupee operator = (const Rupee &);
-      Rupee operator = (const double);
-
-   friend std::ostream& operator << (std::ostream &, const Rupee &);
-   friend std::istream& operator >> (std::istream &, Rupee &);
+	Rupee(int initWhole, int initFractional);
+	~Rupee();
+	void setUp();
 };
 
 #endif
